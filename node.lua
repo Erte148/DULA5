@@ -12,6 +12,7 @@ local video2 = resource.load_video{
     }
 local video3 = resource.load_video{
     file = "video3.mp4";
+    audio = true;
     looped = true;
   }
 
