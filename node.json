@@ -1,5 +1,8 @@
 {
     "name": "Screen Configuration",
+    "permissions": {
+        "gpio": "Access GPIO"
+    },
     "custom_ui": "config.html",
     "optional": [
         ".*.js$",
@@ -9,7 +12,13 @@
         "package-header.jpg",
         ".*.md$"
     ],
-    "options": [{
+    "options": [        {
+        "title": "PIN",
+        "ui_width": 4,
+        "name": "pin",
+        "type": "integer",
+        "default": 18
+         }, {
         "title": "Screens",
         "name": "screens",
         "type": "list",
