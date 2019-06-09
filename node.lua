@@ -283,9 +283,9 @@ end)
 function node.render()
     gl.clear(0,0,0,1)
     if on then
-        font:write(120, 320, "Hello World", 100, 1,1,1,1)--video2:draw(0, 0, WIDTH, HEIGHT)
+        video2:draw(0, 0, WIDTH, HEIGHT)
     else
-        font:write(120, 320, "RED", 100, 1,1,1,1)--playlist.tick(os.time())
+        playlist.tick(os.time())--font:write(120, 320, "RED", 100, 1,1,1,1)
     end
     
     -- screen.draw(test)
