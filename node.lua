@@ -1,5 +1,10 @@
 gl.setup(1920, 1080)
 
+local video2 = resource.load_video{
+    file = "video.mp4";
+    looped = true;
+}
+
 util.noglobals()
 
 -- We need to access files in playlist/
@@ -268,6 +273,11 @@ end)
 
 function node.render()
     gl.clear(0,0,0,1)
-    playlist.tick(os.time())
+    if on then
+        video2:draw(0, 0, WIDTH, HEIGHT)
+    else
+        playlist.tick(os.time())
+    end
+    
     -- screen.draw(test)
 end
