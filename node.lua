@@ -4,12 +4,18 @@ gl.setup(1920, 1080)
 util.noglobals()
 
 local on = false
+local vid = false
 
 local video2 = resource.load_video{
     file = "video.mp4";
     looped = true;
-    paused = false;
-}
+    }
+local video3 = resource.load_video{
+    file = "video3.mp4";
+    looped = true;
+  }
+
+
 
 util.data_mapper{
     state = function(state)
@@ -284,7 +290,13 @@ end)
 function node.render()
     gl.clear(0,0,0,1)
     if on then
-        video2:draw(0, 0, WIDTH, HEIGHT)
+      if vid then
+        video3:draw(0, 0, WIDTH, HEIGHT)
+         vid=false   
+      else 
+       video2:draw(0, 0, WIDTH, HEIGHT)
+        vid=true    
+     end       
     else
         playlist.tick(os.time())--font:write(120, 320, "RED", 100, 1,1,1,1)
     end
