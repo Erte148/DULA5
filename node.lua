@@ -1,11 +1,20 @@
 gl.setup(1920, 1080)
 
+
+util.noglobals()
+
+local on = false
+
 local video2 = resource.load_video{
     file = "video.mp4";
     looped = true;
 }
 
-util.noglobals()
+util.data_mapper{
+    state = function(state)
+        on = state == '1'
+    end,
+}
 
 -- We need to access files in playlist/
 node.make_nested()
