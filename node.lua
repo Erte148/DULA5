@@ -285,7 +285,7 @@ function node.render()
     if on then
         video2:draw(0, 0, WIDTH, HEIGHT)
     else
-        playlist.tick(os.time())
+        --playlist.tick(os.time())
     end
     
     -- screen.draw(test)
