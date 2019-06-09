@@ -2,6 +2,7 @@ gl.setup(1920, 1080)
 
 
 util.noglobals()
+util2.no_globals()
 
 local on = false
 local vid = false
@@ -18,7 +19,7 @@ local video3 = resource.load_video{
 
 
 
-util.data_mapper{
+util2.data_mapper{
     state = function(state)
         on = state == '1'
     end,
