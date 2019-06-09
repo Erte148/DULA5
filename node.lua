@@ -291,14 +291,17 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-        video3:draw(0, 0, WIDTH, HEIGHT)
-         vid=false   
+        video3:draw(0, 0, WIDTH, HEIGHT)          
       else 
-       video2:draw(0, 0, WIDTH, HEIGHT)
-        vid=true    
+       video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
     else
         playlist.tick(os.time())--font:write(120, 320, "RED", 100, 1,1,1,1)
+    if vid then        
+         vid=false   
+      else       
+        vid=true    
+     end  
     end
     
     -- screen.draw(test)
