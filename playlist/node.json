@@ -2,7 +2,7 @@
     "name": "Playlist Configuration",
     "options": [
     {
-        "title": "What to display",
+        "title": "Контент типа заставки, протекает по всем экранам",
         "type": "section"
     }, {
         "title": "Playlist",
@@ -26,7 +26,55 @@
         }]
     },
     {
-        "title": "Видео на устройстве",
+        "title": "Контент типа заставки(нейтральный)",
+        "type": "section"
+    }, {
+        "title": "Playlist",
+        "name": "playlist_n",
+        "type": "list",
+        "itemname": "Item",
+        "items": [{
+            "title": "Asset",
+            "ui_width": 5,
+            "name": "file",
+            "type": "resource",
+            "valid": ["image", "video"],
+            "default": "empty.png"
+        }, {
+            "title": "Play time",
+            "ui_width": 3,
+            "name": "duration",
+            "type": "duration",
+            "hint": "How long should this item be displayed on screen. For videos, use their duration",
+            "default": 5
+        }]
+    },
+     {
+        "title": "Контент про девайс №1",
+        "type": "section"
+    }, {
+        "title": "Playlist",
+        "name": "playlist1",
+        "type": "list",
+        "itemname": "Item",
+        "items": [{
+            "title": "Asset",
+            "ui_width": 5,
+            "name": "file",
+            "type": "resource",
+            "valid": ["image", "video"],
+            "default": "empty.png"
+        }, {
+            "title": "Play time",
+            "ui_width": 3,
+            "name": "duration",
+            "type": "duration",
+            "hint": "How long should this item be displayed on screen. For videos, use their duration",
+            "default": 5
+        }]
+    },
+     {
+        "title": "Контент про девайс №2",
         "type": "section"
     }, {
         "title": "Playlist",
@@ -48,6 +96,6 @@
             "hint": "How long should this item be displayed on screen. For videos, use their duration",
             "default": 5
         }]
-    }
+    }    
     ]
 }
