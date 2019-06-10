@@ -311,17 +311,17 @@ end)
 
 --local font = resource.load_font("silkscreen.ttf")
 
- --local video5 = resource.load_video{
-    --file = resource.open_file('playlist/' .. 'logo_s_textom_2.mp4');
-    --looped = true;
-    --}
+ local video5 = resource.load_video{
+    file = 'playlist/ .. logo_s_textom_2.mp4');
+    looped = true;
+    }
 
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-    video3:draw(0, 0, WIDTH, HEIGHT)  
+    video5:draw(0, 0, WIDTH, HEIGHT)  
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
