@@ -310,14 +310,14 @@ end)
 
 --local font = resource.load_font("silkscreen.ttf")
 
-local qwe=2324
+
 
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-       font:write(120, 320, qwe, 100, 1,1,1,1)    
+       font:write(120, 320, playlist, 100, 1,1,1,1)    
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
