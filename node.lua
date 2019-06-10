@@ -6,7 +6,7 @@ util.noglobals()
 
 local on = false
 local vid = false
-local iblib = require "iblib"
+
 
 local video2 = resource.load_video{
     file = "video.mp4";
@@ -291,57 +291,26 @@ util.file_watch("playlist/config.json", function(raw)
 end)
 
 
-local title_start = 99999999
+
 
 local idx = 0 -- offset before first item. will be incremented during first get_next_item
 local playlist_source = function()
     return CONFIG.playlist1
 end;
 
-local overlay = resource.create_colored_texture(0, 0, 0, 1)
+local playlist = playlist_source()
 
-local player = iblib.playlist{
-    get_next_item = function()
-        local playlist = playlist_source()
-        idx = idx + 1
-        if idx > #playlist then
-            idx = 1
-        end
-
-        local item = playlist[idx]
-        if not item then
-            return nil
-        else
-            return {
-                title = item.title;
-                duration = item.duration;
-                obj = item.file();
-            }
-        end
-    end;
-
-    get_switch_time = function()
-        return CONFIG.switch_time
-    end;
-
-    fade = function(...)
-        title_start = sys.now() + 1.0
-        return faders[CONFIG.fade](...)
-    end;
-
-    draw = util.draw_correct;
-}
-
-
-
-
+local item = playlist[idx] 
+--obj = item.file();
+    
+ 
 
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-        player.draw(0, 0, WIDTH, HEIGHT)         
+        item.file():draw(0, 0, WIDTH, HEIGHT) --player.draw(0, 0, WIDTH, HEIGHT)         
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
