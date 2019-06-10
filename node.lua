@@ -7,7 +7,6 @@ util.noglobals()
 local on = false
 local vid = false
 
-
 local video2 = resource.load_video{
     file = "video.mp4";
     looped = true;
@@ -290,30 +289,11 @@ util.file_watch("playlist/config.json", function(raw)
     node.gc()
 end)
 
-
-
-
-local idx = 0 -- offset before first item. will be incremented during first get_next_item
-local playlist_source = function()
-    return CONFIG.playlist
-end;
-
-local playlist = playlist_source()
-
-local item = playlist[idx] 
---obj = item.file();
-    
- 
-local video5 = resource.load_video{
-    file = resource.open_file('playlist/' .. item.file.asset_name);
-    looped = true;
-    }
-
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-        video5:draw(0, 0, WIDTH, HEIGHT) --player.draw(0, 0, WIDTH, HEIGHT)         
+        video3:draw(0, 0, WIDTH, HEIGHT)          
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
