@@ -293,7 +293,7 @@ end)
 
 
 
-idx = 2
+local idx = 2
 local item = config.playlist[idx]
 local video5 = resource.load_video{
     file = resource.open_file('playlist/' .. item.file.asset_name);
