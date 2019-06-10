@@ -6,6 +6,7 @@ util.noglobals()
 
 local on = false
 local vid = false
+local idp = 2
 
 local video2 = resource.load_video{
     file = "video.mp4";
@@ -279,7 +280,7 @@ util.file_watch("playlist/config.json", function(raw)
     local config = json.decode(raw)
     local items = {}
     for idx = 1, #config.playlist do
-            --idx = 2
+            idx = idp
         local item = config.playlist[idx]
         items[#items+1] = {
             file = resource.open_file('playlist/' .. item.file.asset_name),
@@ -294,30 +295,14 @@ end)
 
 
 
-    --local idx = 2
-    --local item = config.playlist[idx]
-    --local video5 = resource.load_video{
-    --file = resource.open_file('playlist/' .. 'logo_s_textom_2.mp4');
-    --looped = true;
-    --}
-
-
-    
-        
-    --playlist.set(prepare_playlist(items))
-    --node.gc()   
-    --playlist.tick(os.time()) 
-
-
---local font = resource.load_font("silkscreen.ttf")
-
-
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-    video3:draw(0, 0, WIDTH, HEIGHT)  
+	idp=1
+	playlist.tick(os.time())		
+    --video3:draw(0, 0, WIDTH, HEIGHT)  
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
