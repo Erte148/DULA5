@@ -304,13 +304,16 @@ local item = playlist[idx]
 --obj = item.file();
     
  
-
+local video5 = resource.load_video{
+    file = item.file();
+    looped = true;
+    }
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-        item.file():draw(0, 0, WIDTH, HEIGHT) --player.draw(0, 0, WIDTH, HEIGHT)         
+        video5:draw(0, 0, WIDTH, HEIGHT) --player.draw(0, 0, WIDTH, HEIGHT)         
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
