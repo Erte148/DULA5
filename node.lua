@@ -293,6 +293,25 @@ end)
 
 
 
+local video5 = resource.load_video{
+         idx = 2
+    local item = config.playlist[idx]
+        --items[#items+1] = {
+            file = resource.open_file('playlist/' .. item.file.asset_name),
+            type = item.file.type,
+         --   duration = item.duration,
+       -- }    
+    
+    
+    
+    }
+
+
+    
+        
+    --playlist.set(prepare_playlist(items))
+    --node.gc()   
+    --playlist.tick(os.time()) 
 
 
 
@@ -303,16 +322,7 @@ function node.render()
     if on then
       if vid then
         --video3:draw(0, 0, WIDTH, HEIGHT) 
-         idx = 2
-        local item = config.playlist[idx]
-        items[#items+1] = {
-            file = resource.open_file('playlist/' .. item.file.asset_name),
-            type = item.file.type,
-            duration = item.duration,
-        }    
-    playlist.set(prepare_playlist(items))
-    node.gc()   
-    playlist.tick(os.time())        
+       video5:draw(0, 0, WIDTH, HEIGHT)      
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
