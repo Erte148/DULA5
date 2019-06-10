@@ -278,8 +278,9 @@ util.file_watch("playlist/config.json", function(raw)
     local config = json.decode(raw)
     local items = {}
     for idx = 1, #config.playlist do
+            idx = 1
         local item = config.playlist[idx]
-        items[2] = {
+        items[#items+1] = {
             file = resource.open_file('playlist/' .. item.file.asset_name),
             type = item.file.type,
             duration = item.duration,
