@@ -295,7 +295,7 @@ end)
 
 local idx = 0 -- offset before first item. will be incremented during first get_next_item
 local playlist_source = function()
-    return CONFIG.playlist1
+    return CONFIG.playlist
 end;
 
 local playlist = playlist_source()
