@@ -297,8 +297,8 @@ local video5 = resource.load_video{
          idx = 2
     local item = config.playlist[idx]
         --items[#items+1] = {
-            file = resource.open_file('playlist/' .. item.file.asset_name),
-            type = item.file.type,
+            file = resource.open_file('playlist/' .. item.file.asset_name)
+           -- type = item.file.type
          --   duration = item.duration,
        -- }    
     
