@@ -301,7 +301,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-        video5:draw(0, 0, WIDTH, HEIGHT)          
+        video3:draw(0, 0, WIDTH, HEIGHT)          
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
