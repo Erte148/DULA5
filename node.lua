@@ -293,12 +293,12 @@ end)
 
 
 
-local idx = 2
-local item = config.playlist[idx]
-local video5 = resource.load_video{
-    file = resource.open_file('playlist/' .. item.file.asset_name);
-    looped = true;
-    }
+    --local idx = 2
+    --local item = config.playlist[idx]
+    --local video5 = resource.load_video{
+    --file = resource.open_file('playlist/' .. item.file.asset_name);
+    --looped = true;
+    --}
 
 
     
@@ -316,7 +316,7 @@ function node.render()
     if on then
       if vid then
         --video3:draw(0, 0, WIDTH, HEIGHT) 
-       video5:draw(0, 0, WIDTH, HEIGHT)      
+       video3:draw(0, 0, WIDTH, HEIGHT)      
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
