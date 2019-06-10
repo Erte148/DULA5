@@ -297,7 +297,7 @@ end)
     --local idx = 2
     --local item = config.playlist[idx]
     --local video5 = resource.load_video{
-    --file = resource.open_file('playlist/' .. item.file.asset_name);
+    --file = resource.open_file('playlist/' .. 'logo_s_textom_2.mp4');
     --looped = true;
     --}
 
@@ -311,24 +311,17 @@ end)
 
 --local font = resource.load_font("silkscreen.ttf")
 
- 
+ local video5 = resource.load_video{
+    file = resource.open_file('playlist/' .. 'logo_s_textom_2.mp4');
+    looped = true;
+    }
 
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-         local idx2 = 2
-        local item2 = config.playlist2[idx2]
-	items2= {}		
-        items2[#items2+1] = {
-            file = resource.open_file('playlist/' .. item2.file.asset_name),
-            type = item2.file.type,
-            duration = item2.duration,
-        }  
-    playlist2.set(prepare_playlist(items2))
-    node.gc()
-      playlist2.tick()  
+    video5:draw(0, 0, WIDTH, HEIGHT)  
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
