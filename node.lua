@@ -305,7 +305,7 @@ local item = playlist[idx]
     
  
 local video5 = resource.load_video{
-    file = item.file();
+    file = resource.open_file('playlist/' .. item.file.asset_name);
     looped = true;
     }
 
