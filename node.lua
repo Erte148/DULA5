@@ -294,14 +294,9 @@ end)
 
 
 
-local item = playlist[0] 
---obj = item.file();
-    
- 
-local video5 = resource.load_video{
-    file = resource.open_file('playlist/' .. item.file.asset_name);
-    looped = true;
-    }
+
+
+
 function node.render()
     gl.clear(0,0,0,1)
     if on then
