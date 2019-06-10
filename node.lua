@@ -317,7 +317,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-       font:write(120, 320, item.file.asset_name, 100, 1,1,1,1)    
+       font:write(120, 320, playlist.file.asset_name, 100, 1,1,1,1)    
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
