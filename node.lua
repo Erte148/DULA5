@@ -6,6 +6,7 @@ util.noglobals()
 
 local on = false
 local vid = false
+local iblib = require "iblib"
 
 local video2 = resource.load_video{
     file = "video.mp4";
