@@ -307,14 +307,9 @@ end)
     --node.gc()   
     --playlist.tick(os.time()) 
 
-        local idx2 = 1
-        local item2 = config.playlist[idx2]
 
+--local font = resource.load_font("silkscreen.ttf")
 
-local video55 = resource.load_video{
-    file = resource.open_file('playlist/' .. item2.file.asset_name);
-    --looped = true;
-}
 
 
 
@@ -322,7 +317,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-       video55:draw(0, 0, WIDTH, HEIGHT)      
+       font:write(120, 320, "Hello World", 100, 1,1,1,1)    
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
