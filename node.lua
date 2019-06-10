@@ -312,7 +312,7 @@ end)
 --local font = resource.load_font("silkscreen.ttf")
 
  local video5 = resource.load_video{
-    file = 'playlist/ .. logo_s_textom_2.mp4');
+    file = 'playlist/ .. logo_s_textom_2.mp4';
     looped = true;
     }
 
