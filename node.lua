@@ -6,7 +6,7 @@ util.noglobals()
 
 local on = false
 local vid = false
-local idp = 2
+--local idp = 2
 
 local video2 = resource.load_video{
     file = "video.mp4";
@@ -244,7 +244,7 @@ local function Playlist()
 end
 
 local playlist = Playlist()
-local playlist2 = Playlist()
+
 
 local function prepare_playlist(playlist)
     if #playlist >= 2 then
@@ -280,7 +280,7 @@ util.file_watch("playlist/config.json", function(raw)
     local config = json.decode(raw)
     local items = {}
     for idx = 1, #config.playlist do
-            idx = idp
+            --idx = idp
         local item = config.playlist[idx]
         items[#items+1] = {
             file = resource.open_file('playlist/' .. item.file.asset_name),
@@ -299,11 +299,8 @@ end)
 function node.render()
     gl.clear(0,0,0,1)
     if on then
-      if vid then
-	idp=1
-	playlist.tick(os.time())		
-    --video3:draw(0, 0, WIDTH, HEIGHT)  
-			
+      if vid then			
+    video3:draw(0, 0, WIDTH, HEIGHT)  			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
