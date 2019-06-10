@@ -310,16 +310,26 @@ end)
 
 --local font = resource.load_font("silkscreen.ttf")
 
- local item2 = config.playlist[1]
-        
-            local ff=item2.file.asset_name
+ 
 
 
 function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-       font:write(120, 320, ff, 100, 1,1,1,1)    
+        local idx2 = 1
+        local item2 = config.playlist[idx2]
+		local items2 = {}
+        items2[#items+1] = {
+            file = resource.open_file('playlist/' .. item2.file.asset_name),
+            type = item2.file.type,
+            duration = item2.duration,
+        }   
+    playlist.set(prepare_playlist(items2))
+    node.gc()
+	 playlist.tick(os.time())    
+            
+       --font:write(120, 320, ff, 100, 1,1,1,1)    
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
