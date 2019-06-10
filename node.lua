@@ -312,7 +312,7 @@ function node.render()
         }    
     playlist.set(prepare_playlist(items))
     node.gc()   
-            
+    playlist.tick(os.time())        
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
