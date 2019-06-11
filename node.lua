@@ -105,6 +105,20 @@ local Video = {
     end;
     prepare = function(self)
     end;
+	
+tick2 = function(self, now)
+        if not self.obj then
+            self.obj = resource.load_video{
+                file = self.file:copy();
+                paused = true;
+            }
+        end    
+
+        self.obj:start()
+        local state, w, h = self.obj:state()
+        screen.draw(self.obj)
+        
+end;
     tick = function(self, now)
         if not self.obj then
             self.obj = resource.load_video{
@@ -185,7 +199,7 @@ local function Playlist()
         local idx = 1
         local item = items[idx]           
         item.state = "running"          
-        item:tick(now)
+        item:tick2(now)
         
       end 	
     
