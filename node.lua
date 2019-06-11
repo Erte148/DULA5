@@ -188,7 +188,8 @@ local function Playlist()
 	local idx = 1
         local item = items[idx]           
         item.state = "running"          
-        item:tick2(now)
+        --item:tick2(now)
+	screen.draw2(item.obj)	
         
       end 	
     
