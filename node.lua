@@ -177,6 +177,17 @@ local function Playlist()
         
     end
     
+	
+    local function tick2(now)  
+        
+       
+
+        local idx = 1
+        local item = items[idx]           
+        item.state = "running"          
+        item:tick(now)
+        
+      end 	
     
     local function tick(now)
         local num_running = 0
@@ -336,11 +347,8 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then                  
-    --playlist2.tick(os.time())
-     local item = items[1]
-	local itt =item.obj		
-			
-     itt:tick(os.time())		
+    playlist2.tick2(os.time())
+     		
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
