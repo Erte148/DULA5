@@ -358,8 +358,19 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then                  
-    playlist2.tick2(os.time())
-     		
+    //playlist2.tick2(os.time())
+     	local idx = 1
+        local item = items[idx]           
+        item.state = "running"          
+        --item:tick2(now)
+	--if not item.obj then
+            item.obj = resource.load_video{
+                file = item.file:copy();
+                paused = true;
+            }
+        --end 	
+	util.draw_correct(item.obj, 0, 0, 1920, 1080)	
+	
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
