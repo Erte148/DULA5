@@ -295,6 +295,7 @@ local function Playlist()
     return {
         set = set;
         tick = tick;
+	tickq = tickq;	
     }
 end
 
