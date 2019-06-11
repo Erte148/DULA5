@@ -82,6 +82,7 @@ local function Screen()
     return {
         update = update;
         draw = draw;
+	drawq= drawq;
     }
 end
 
