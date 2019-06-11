@@ -67,9 +67,9 @@ local function Screen()
     end
 
     local function draw(obj)
-        --gl.rotate(-screen_rot, 0, 0, 1)
-        --gl.translate(-screen_x, -screen_y)
-        util.draw_correct(obj, 0, 0, 1920, 1080)
+        gl.rotate(-screen_rot, 0, 0, 1)
+        gl.translate(-screen_x, -screen_y)
+        util.draw_correct(obj, 0, 0, content_w, content_h)
     end
 
     return {
@@ -160,6 +160,34 @@ local function Playlist()
         -- pp(item)
     end
 
+    local function tick2(now)
+        local num_running = 0
+        local next_running = 99999999999999
+
+        
+        
+        if #items == 0 then
+            msg("[%s] no playlist configured", serial)
+            return
+        end
+
+        for idx = 1, #items do
+            local item = items[idx]
+			item.state = "running"            
+
+            next_running = min(next_running, item.t_start)
+            
+                item:tick(now)
+                num_running = num_running + 1
+            
+        end
+
+        if num_running == 0 then
+            local wait = next_running - now
+            msg("[%s] waiting for sync %.1f", serial, wait)
+        end
+    end
+    
     local function tick(now)
         local num_running = 0
         local next_running = 99999999999999
@@ -317,7 +345,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then			
-    playlist2.tick(os.time())			
+    playlist2.tick2(os.time())			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
