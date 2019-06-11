@@ -177,39 +177,20 @@ local function Playlist()
         local num_running = 0
         local next_running = 99999999999999
 
-        if not assigned then
-            msg("[%s] screen not configured for this setup", serial)
-            return
-        end
         
-        if #items == 0 then
-            msg("[%s] no playlist configured", serial)
-            return
-        end
 
-        for idx = 1, #items do
+         idx = 1
             local item = items[idx]
-            if item.t_prepare <= now and item.state == "waiting" then
-                print(now, "preparing ", item.file)
-                item:prepare()
-                item.state = "prepared"
-            elseif item.t_start <= now and item.state == "prepared" then
-                print(now, "running ", item.file)
+            
                 item.state = "running"
-            elseif item.t_end <= now and item.state == "running" then
-                print(now, "resetting ", item.file)
-                item:stop()
-                calc_start(idx, now)
-                item.state = "waiting"
-            end
-
+            
             next_running = min(next_running, item.t_start)
 
             if item.state == "running" then
                 item:tick(now)
                 num_running = num_running + 1
             end
-        end
+        
 
         if num_running == 0 then
             local wait = next_running - now
