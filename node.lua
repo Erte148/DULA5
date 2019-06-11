@@ -114,8 +114,8 @@ tick2 = function(self, now)
             }
         end    
 
-        self.obj:start()
-        local state, w, h = self.obj:state()
+        --self.obj:start()
+        --local state, w, h = self.obj:state()
         screen.draw(self.obj)
         
 end;
@@ -179,7 +179,7 @@ local function Playlist()
         
 
          local item = items[1]
-	 item.state = "running" 
+	 --item.state = "running" 
 	 item:tick(now)    
          
             
