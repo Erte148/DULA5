@@ -122,7 +122,7 @@ local Video = {
         if not self.obj then
             self.obj = resource.load_video{
                 file = self.file:copy();
-                paused = true;
+                paused = true;				
             }
         end
 
@@ -153,6 +153,7 @@ local Video = {
             self.obj = resource.load_video{
                 file = self.file:copy();
                 paused = true;
+		looped = true;		
             }
         end       
 
