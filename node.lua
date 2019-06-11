@@ -238,7 +238,7 @@ local function Playlist()
 
         
 
-       local idx = 1
+       	for idx = 1, #items do
             local item = items[idx]
            
                 item.state = "running"
@@ -250,6 +250,8 @@ local function Playlist()
                 item:tickq(now)
                 num_running = num_running + 1
             end
+	end
+			
         
 
         if num_running == 0 then
