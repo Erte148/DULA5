@@ -305,11 +305,7 @@ hosted_init()
 --util.no_globals()
 --local on = false
 --local font = resource.load_font "silkscreen.ttf"
-util.data_mapper{
-    state = function(state)
-        on = state == '1'
-    end,
-}
+
 
 
 node.set_flag("slow_gc", false)
