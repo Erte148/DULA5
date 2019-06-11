@@ -320,7 +320,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-      screen.draw(test)      
+      screen.draw(config.playlist[1])      
     --playlist2.tick(os.time())			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
