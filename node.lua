@@ -317,7 +317,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then			
-    playlist2.tick(0)			
+    playlist2.tick(os.time())			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
@@ -330,5 +330,5 @@ function node.render()
      end  
     end
     
-    -- screen.draw(test)
+    screen.draw(test)
 end
