@@ -225,7 +225,7 @@ local function Playlist()
             next_running = min(next_running, item.t_start)
 
             if item.state == "running" then
-                item:tick(now)
+                item:tick2(now)
                 num_running = num_running + 1
             end
         end
