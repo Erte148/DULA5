@@ -1,4 +1,4 @@
-gl.setup(1920, 1080)
+gl.setup(NATIVE_WIDTH, NATIVE_HEIGHT)
 
 
 util.noglobals()
