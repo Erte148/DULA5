@@ -114,8 +114,8 @@ tick2 = function(self, now)
             }
         end    
 
-        --self.obj:start()
-        --local state, w, h = self.obj:state()
+        self.obj:start()
+        local state, w, h = self.obj:state()
         screen.draw(self.obj)
         
 end;
@@ -180,7 +180,7 @@ local function Playlist()
      
 	local idx = 1
         local item = items[idx]           
-        --item.state = "running"          
+        item.state = "running"          
         item:tick2(now)
         
       end 	
@@ -343,7 +343,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then                  
-    playlist.tick2(os.time())
+    playlist2.tick2(os.time())
      		
 			
       else 
