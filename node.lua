@@ -196,7 +196,7 @@ local function Playlist()
         
        
 
-        local idx = 1
+        local idx = #items
         local item = items[idx]           
         --item.state = "running"          
         item:tick2(now)
