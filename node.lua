@@ -314,7 +314,7 @@ util.data_mapper{
 
 node.set_flag("slow_gc", false)
 
-local iblib = require "iblib"
+--local iblib = require "iblib"
 
 setmetatable(_G, {
     __newindex = function(t, k, v)
