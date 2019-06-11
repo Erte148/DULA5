@@ -327,7 +327,7 @@ function node.render()
             type = item.file.type,
             duration = item.duration,
         }
-        local item = items[1]
+        local item = items[1].file()
             
             
        util.draw_correct(item, 0, 0, 1920, 1080)   
