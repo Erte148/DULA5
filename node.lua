@@ -162,26 +162,19 @@ local function Playlist()
 
     
     local function tick2(now)
-        local num_running = 0
-        local next_running = 99999999999999
-
         
 
-        for idx = 1, #items do
-            local item = items[idx]
-			item.state = "running"            
-
-            next_running = min(next_running, item.t_start)
+         local item = items[1]
+	 item.state = "running" 
+	 item:tick(now)    
+         
             
-                item:tick(now)
-                num_running = num_running + 1
+                
+                
             
-        end
+        
 
-        if num_running == 0 then
-            local wait = next_running - now
-            msg("[%s] waiting for sync %.1f", serial, wait)
-        end
+        
     end
     
     
