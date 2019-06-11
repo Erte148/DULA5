@@ -71,6 +71,13 @@ local function Screen()
         gl.translate(-screen_x, -screen_y)
         util.draw_correct(obj, 0, 0, content_w, content_h)
     end
+	
+    local function draw2(obj)
+        --gl.rotate(-screen_rot, 0, 0, 1)
+        --gl.translate(-screen_x, -screen_y)
+        util.draw_correct(obj, 0, 0, 1920, 1080)
+    end
+	
 
     return {
         update = update;
@@ -116,7 +123,7 @@ tick2 = function(self, now)
 
         self.obj:start()
         local state, w, h = self.obj:state()
-        screen.draw(self.obj)
+        screen.draw2(self.obj)
         
 end;
     tick = function(self, now)
