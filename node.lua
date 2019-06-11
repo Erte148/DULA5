@@ -164,7 +164,7 @@ local function Playlist()
     
     local function tick(now)
         local num_running = 0
-        local next_running = now
+        local next_running = 99999999999999
 
         if not assigned then
             msg("[%s] screen not configured for this setup", serial)
@@ -319,7 +319,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then			
-    playlist2.tick2(os.time())			
+    playlist2.tick(os.time())			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
