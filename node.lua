@@ -68,7 +68,7 @@ local function Screen()
 
     local function draw(obj)
         gl.rotate(-screen_rot, 0, 0, 1)
-        gl.translate(-screen_x, -screen_y)
+        gl.translate(0, 0)
         util.draw_correct(obj, 0, 0, content_w, content_h)
     end
 
@@ -330,5 +330,5 @@ function node.render()
      end  
     end
     
-    screen.draw(test)
+    --screen.draw(test)
 end
