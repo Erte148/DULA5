@@ -99,6 +99,10 @@ local Image = {
         local state, w, h = self.obj:state()
         screen.draw(self.obj)
     end;
+    tickq = function(self, now)
+        local state, w, h = self.obj:state()
+        screen.drawq(self.obj)
+    end;
     stop = function(self)
         if self.obj then
             self.obj:dispose()
