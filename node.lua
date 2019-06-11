@@ -161,6 +161,29 @@ local function Playlist()
     end
 
     
+    local function tick2(now)
+        local num_running = 0
+        local next_running = 99999999999999
+
+        
+
+        for idx = 1, #items do
+            local item = items[idx]
+			item.state = "running"            
+
+            next_running = min(next_running, item.t_start)
+            
+                item:tick(now)
+                num_running = num_running + 1
+            
+        end
+
+        if num_running == 0 then
+            local wait = next_running - now
+            msg("[%s] waiting for sync %.1f", serial, wait)
+        end
+    end
+    
     
     local function tick(now)
         local num_running = 0
@@ -320,19 +343,8 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then
-      --screen.draw(config.playlist[1]) 
-      local item = config.playlist[1]
-        items[#items+1] = {
-            file = resource.open_file('playlist/' .. item.file.asset_name),
-            type = item.file.type,
-            duration = item.duration,
-        }
-        local item = items[1].file
-            
-            
-       util.draw_correct(item, 0, 0, 1920, 1080)   
-            
-    --playlist2.tick(os.time())			
+                  
+    playlist2.tick2(os.time())			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
