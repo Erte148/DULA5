@@ -327,7 +327,10 @@ function node.render()
             type = item.file.type,
             duration = item.duration,
         }
-       util.draw_correct(items, 0, 0, 1920, 1080)   
+        --local item = items[1]
+            
+            
+       util.draw_correct(item, 0, 0, 1920, 1080)   
             
     --playlist2.tick(os.time())			
       else 
