@@ -338,7 +338,9 @@ function node.render()
       if vid then                  
     --playlist2.tick(os.time())
      local item = items[1]
-     item:tick(os.time())		
+	local itt =item.obj		
+			
+     itt:tick(os.time())		
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
