@@ -174,29 +174,11 @@ local function Playlist()
         -- pp(item)
     end
 
-    
-    local function tick2(now)
-        
-
-         local item = items[1]
-	 --item.state = "running" 
-	 item:tick(now)    
-         
-            
-                
-                
-            
-        
-
-        
-    end
-    
+      
 	
-    local function tick2(now)  
-        
-       
-
-        local idx = 1
+    local function tick2(now)     
+     
+	local idx = 1
         local item = items[idx]           
         --item.state = "running"          
         item:tick2(now)
