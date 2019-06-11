@@ -305,7 +305,7 @@ util.file_watch("playlist/config.json", function(raw)
             type = item.file.type,
             duration = item.duration,
         }
-       local obj = item.file()  
+       local obj = item.file  
        screen.draw(obj)
     end
     playlist2.set(prepare_playlist(items))
