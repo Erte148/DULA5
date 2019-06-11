@@ -152,7 +152,7 @@ end;
 '--------------------------------------------'
 ]]
         else
-            screen.draw(self.obj)
+            screen.draw2(self.obj)
         end
     end;
     stop = function(self)
