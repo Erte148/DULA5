@@ -292,6 +292,7 @@ util.file_watch("playlist/config.json", function(raw)
     node.gc()
 end)
 
+hosted_init()
 
 node.set_flag("slow_gc", false)
 
