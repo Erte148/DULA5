@@ -317,7 +317,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then			
-    playlist2.tick()			
+    playlist2.tick(0)			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
