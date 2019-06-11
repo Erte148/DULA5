@@ -321,13 +321,13 @@ function node.render()
     if on then
       if vid then
       --screen.draw(config.playlist[1]) 
-      local item = config.playlist2[1]
+      local item = config.playlist[1]
         items[#items+1] = {
             file = resource.open_file('playlist/' .. item.file.asset_name),
             type = item.file.type,
             duration = item.duration,
         }
-        --local item = items[1]
+        local item = items[1]
             
             
        util.draw_correct(item, 0, 0, 1920, 1080)   
