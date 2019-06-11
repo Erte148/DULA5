@@ -120,29 +120,15 @@ local Video = {
                 file = self.file:copy();
                 paused = true;
             }
-        end
-
-        if now < self.t_start + VIDEO_PRELOAD_TIME then
-            return
-        end
+        end       
 
         self.obj:start()
         local state, w, h = self.obj:state()
-
-        if state ~= "loaded" and state ~= "finished" then
-            print[[
-
-.--------------------------------------------.
-  WARNING:
-  lost video frame. video is most likely out
-  of sync. increase VIDEO_PRELOAD_TIME (on all
-  devices)
-'--------------------------------------------'
-]]
-        else
-            screen.draw(self.obj)
-        end
-    end;
+	screen.draw(self.obj)	 
+        
+    
+	end;
+	
     stop = function(self)
         if self.obj then
             self.obj:dispose()
