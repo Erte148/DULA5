@@ -179,12 +179,13 @@ local function Playlist()
 
         
 
-         idx = 1
+       local idx = 1
             local item = items[idx]
-            
+           
                 item.state = "running"
+          
+
             
-            next_running = min(next_running, item.t_start)
 
             if item.state == "running" then
                 item:tick(now)
@@ -197,6 +198,8 @@ local function Playlist()
             msg("[%s] waiting for sync %.1f", serial, wait)
         end
     end
+	
+	
 
     local function stop_all()
         for idx = 1, #items do
