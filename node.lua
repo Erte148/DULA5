@@ -305,6 +305,8 @@ util.file_watch("playlist/config.json", function(raw)
             type = item.file.type,
             duration = item.duration,
         }
+       local obj = item.file()  
+       screen.draw(obj)
     end
     playlist2.set(prepare_playlist(items))
     node.gc()
@@ -318,8 +320,9 @@ end)
 function node.render()
     gl.clear(0,0,0,1)
     if on then
-      if vid then			
-    playlist2.tick(os.time())			
+      if vid then
+      screen.draw(test)      
+    --playlist2.tick(os.time())			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
