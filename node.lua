@@ -244,7 +244,7 @@ local function Playlist()
 end
 
 local playlist = Playlist()
-
+local playlist2 = Playlist()
 
 local function prepare_playlist(playlist)
     if #playlist >= 2 then
@@ -292,7 +292,22 @@ util.file_watch("playlist/config.json", function(raw)
     node.gc()
 end)
 
-local iblib = require "iblib"
+util.file_watch("playlist/config.json", function(raw)
+    local config = json.decode(raw)
+    local items = {}
+    for idx = 1, #config.playlist2 do
+            --idx = idp
+        local item = config.playlist2[idx]
+        items[#items+1] = {
+            file = resource.open_file('playlist/' .. item.file.asset_name),
+            type = item.file.type,
+            duration = item.duration,
+        }
+    end
+    playlist2.set(prepare_playlist(items))
+    node.gc()
+end)
+
 
 
 
@@ -302,7 +317,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then			
-    player2.draw(0, 0, WIDTH, HEIGHT) 			
+    playlist2.tick(os.time())- 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
      end       
