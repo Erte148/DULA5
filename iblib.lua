@@ -1,6 +1,6 @@
 module("iblib", package.seeall)
 
-function playlist0(opt)
+function playlist(opt)
     local get_next_item = opt.get_next_item
     local get_switch_time = opt.get_switch_time
 
