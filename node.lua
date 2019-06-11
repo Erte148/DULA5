@@ -72,7 +72,7 @@ local function Screen()
         util.draw_correct(obj, 0, 0, content_w, content_h)
     end
 	
-    local function draw2(obj)
+    local function drawq(obj)
         --gl.rotate(-screen_rot, 0, 0, 1)
         --gl.translate(-screen_x, -screen_y)
         util.draw_correct(obj, 0, 0, 1920, 1080)
@@ -153,7 +153,7 @@ local Video = {
 
         self.obj:start()
         local state, w, h = self.obj:state()
-	screen.draw(self.obj)	 
+	screen.drawq(self.obj)	 
         
     
      end;
