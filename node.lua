@@ -189,12 +189,12 @@ local function Playlist()
         local item = items[idx]           
         item.state = "running"          
         --item:tick2(now)
-	if not item.obj then
+	--if not item.obj then
             item.obj = resource.load_video{
                 file = item.file:copy();
                 paused = true;
             }
-        end 	
+        --end 	
 		
 	screen.draw2(item.obj)	
         
