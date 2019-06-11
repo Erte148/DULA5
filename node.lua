@@ -68,8 +68,8 @@ local function Screen()
 
     local function draw(obj)
         gl.rotate(-screen_rot, 0, 0, 1)
-        gl.translate(0, 0)
-        util.draw_correct(obj, 0, 0, content_w, content_h)
+        gl.translate(-screen_x, -screen_y)
+        util.draw_correct(obj, 0, 0, screen.width, screen.height)
     end
 
     return {
