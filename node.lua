@@ -292,7 +292,7 @@ util.file_watch("playlist/config.json", function(raw)
     node.gc()
 end)
 
-
+hosted_init()
 
 
 
