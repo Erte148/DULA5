@@ -160,37 +160,11 @@ local function Playlist()
         -- pp(item)
     end
 
-    local function tick2(now)
-        local num_running = 0
-        local next_running = 99999999999999
-
-        
-        
-        if #items == 0 then
-            msg("[%s] no playlist configured", serial)
-            return
-        end
-
-        for idx = 1, #items do
-            local item = items[idx]
-			item.state = "running"            
-
-            next_running = min(next_running, item.t_start)
-            
-                item:tick(now)
-                num_running = num_running + 1
-            
-        end
-
-        if num_running == 0 then
-            local wait = next_running - now
-            msg("[%s] waiting for sync %.1f", serial, wait)
-        end
-    end
+    
     
     local function tick(now)
         local num_running = 0
-        local next_running = 99999999999999
+        local next_running = now
 
         if not assigned then
             msg("[%s] screen not configured for this setup", serial)
