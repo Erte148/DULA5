@@ -113,19 +113,7 @@ local Video = {
     prepare = function(self)
     end;
 	
-tick2 = function(self, now)
-        if not self.obj then
-            self.obj = resource.load_video{
-                file = self.file:copy();
-                paused = true;
-            }
-        end    
 
-        self.obj:start()
-        local state, w, h = self.obj:state()
-        screen.draw2(self.obj)
-        
-end;
     tick = function(self, now)
         if not self.obj then
             self.obj = resource.load_video{
@@ -152,7 +140,7 @@ end;
 '--------------------------------------------'
 ]]
         else
-            screen.draw2(self.obj)
+            screen.draw(self.obj)
         end
     end;
     stop = function(self)
@@ -183,22 +171,7 @@ local function Playlist()
 
       
 	
-    local function tick2(now)     
-     
-	local idx = 1
-        local item = items[idx]           
-        item.state = "running"          
-        --item:tick2(now)
-	--if not item.obj then
-            item.obj = resource.load_video{
-                file = item.file:copy();
-                paused = true;
-            }
-        --end 	
-		
-	screen.draw2(item.obj)	
-        
-      end 	
+    
     
     local function tick(now)
         local num_running = 0
@@ -358,19 +331,7 @@ function node.render()
     gl.clear(0,0,0,1)
     if on then
       if vid then                  
-    --playlist2.tick2(os.time())
-     	local idx = 1
-        local item = items[idx]           
-        item.state = "running"          
-        --item:tick2(now)
-	--if not item.obj then
-            item.obj = resource.load_video{
-                file = item.file:copy();
-                paused = true;
-            }
-        --end 	
-	util.draw_correct(item.obj, 0, 0, 1920, 1080)	
-	
+    playlist2.tick(os.time())     	
 			
       else 
        video2:draw(0, 0, WIDTH, HEIGHT)          
