@@ -308,7 +308,11 @@ local function Playlist()
 end
 
 local playlist = Playlist()
-local playlist2 = Playlist()
+local playlist_n = Playlist()
+local playlist12 = Playlist()
+local playlist3 = Playlist()
+local playlist4 = Playlist()
+local playlist56 = Playlist()
 
 local function prepare_playlist(playlist)
     if #playlist >= 2 then
