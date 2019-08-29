@@ -6,9 +6,17 @@ util.noglobals()
 
 local on = false
 
-local font = resource.load_font "font.ttf"
 local count = 0
 local num=0
+
+
+util.data_mapper{
+    counter = function(counter)
+        count = tonumber(counter)
+    end,
+}
+
+
 --local idp = 2
 
 --local video2 = resource.load_video{
@@ -18,11 +26,7 @@ local num=0
 
 
 
-util.data_mapper{
-    counter = function(counter)
-        count = tonumber(counter)
-    end,
-}
+
 
 -- We need to access files in playlist/
 node.make_nested()
@@ -458,5 +462,5 @@ function node.render()
     gl.clear(0,0,0,1)
     font:write(30, 10, "Motion Detected", 100, .5,.5,.5,1)
     countStr = tostring(num)
-    font:write(250, 300, countStr, 64, 1,1,1,1)  
+    font:write(250, 300, countStr, 64, 1,1,1,1)
 end
