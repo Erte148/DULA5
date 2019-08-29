@@ -1,4 +1,4 @@
- #!/usr/bin/python2.7
+#!/usr/bin/python
 from hosted import device, node, config
 config.restart_on_update()
 
