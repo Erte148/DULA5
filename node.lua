@@ -443,15 +443,18 @@ util.file_watch("playlist/config.json", function(raw)
 end)
 
 function node.render()
-gl.clear(0,0,0,1)
+
 
   if count==18 then  playlist_n.tickq(os.time())
-  elseif count==17 then  playlist12.tickq(os.time())
+  elseif count==17 then  num=count
   elseif count==27 then  playlist3.tickq(os.time())  
   elseif count==23 then  playlist4.tickq(os.time())
   elseif count==25 then  playlist56.tickq(os.time())     
- else  playlist.tick(os.time()) 
+ else  num=0
         end
      
-    
+    gl.clear(0,0,0,1)
+    font:write(30, 10, "Motion Detected", 100, .5,.5,.5,1)
+    countStr = tostring(num)
+    font:write(250, 300, countStr, 64, 1,1,1,1)  
 end
