@@ -12,13 +12,43 @@
         "package-header.jpg",
         ".*.md$"
     ],
-    "options": [        {
-        "title": "PIN",
+    "options": [        
+        {
+        "title": "PIN18",
         "ui_width": 4,
-        "name": "pin",
+        "name": "pin18",
         "type": "integer",
-        "default": 5
-         }, {
+        "default": 18
+    },
+     {
+        "title": "PIN17",
+        "ui_width": 4,
+        "name": "pin17",
+        "type": "integer",
+        "default": 17
+    },
+     {
+        "title": "PIN27",
+        "ui_width": 4,
+        "name": "pin27",
+        "type": "integer",
+        "default": 27
+    },
+     {
+        "title": "PIN23",
+        "ui_width": 4,
+        "name": "pin23",
+        "type": "integer",
+        "default": 23
+    },
+     {
+        "title": "PIN25",
+        "ui_width": 4,
+        "name": "pin25",
+        "type": "integer",
+        "default": 25
+    }
+     , {
         "title": "Screens",
         "name": "screens",
         "type": "list",
