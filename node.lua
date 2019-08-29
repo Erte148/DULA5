@@ -5,24 +5,20 @@ util.noglobals()
 
 
 local on = false
-local vid = false
+local count = 0
+local num=0
 --local idp = 2
 
-local video2 = resource.load_video{
-    file = "video.mp4";
-    looped = true;
-    }
-local video3 = resource.load_video{
-    file = "video3.mp4";
-    audio = true;
-    looped = true;
-  }
+--local video2 = resource.load_video{
+    --file = "video.mp4";
+    --looped = true;
+    --}
 
 
 
 util.data_mapper{
-    state = function(state)
-        on = state == '1'
+    counter = function(counter)
+        count = tonumber(counter)
     end,
 }
 
@@ -363,9 +359,9 @@ end)
 util.file_watch("playlist/config.json", function(raw)
     local config = json.decode(raw)
     local items = {}
-    for idx = 1, #config.playlist2 do
+    for idx = 1, #config.playlist_n do
             --idx = idp
-        local item = config.playlist2[idx]
+        local item = config.playlist_n[idx]
         items[#items+1] = {
             file = resource.open_file('playlist/' .. item.file.asset_name),
             type = item.file.type,
@@ -373,32 +369,89 @@ util.file_watch("playlist/config.json", function(raw)
         }
        
     end
-    playlist2.set(prepare_playlist(items))
+    playlist_n.set(prepare_playlist(items))
     node.gc()
 end)
 
 
+util.file_watch("playlist/config.json", function(raw)
+    local config = json.decode(raw)
+    local items = {}
+    for idx = 1, #config.playlist12 do
+            --idx = idp
+        local item = config.playlist12[idx]
+        items[#items+1] = {
+            file = resource.open_file('playlist/' .. item.file.asset_name),
+            type = item.file.type,
+            duration = item.duration,
+        }
+       
+    end
+    playlist12.set(prepare_playlist(items))
+    node.gc()
+end)
 
+util.file_watch("playlist/config.json", function(raw)
+    local config = json.decode(raw)
+    local items = {}
+    for idx = 1, #config.playlist3 do
+            --idx = idp
+        local item = config.playlist3[idx]
+        items[#items+1] = {
+            file = resource.open_file('playlist/' .. item.file.asset_name),
+            type = item.file.type,
+            duration = item.duration,
+        }
+       
+    end
+    playlist3.set(prepare_playlist(items))
+    node.gc()
+end)
 
+util.file_watch("playlist/config.json", function(raw)
+    local config = json.decode(raw)
+    local items = {}
+    for idx = 1, #config.playlist4 do
+            --idx = idp
+        local item = config.playlist4[idx]
+        items[#items+1] = {
+            file = resource.open_file('playlist/' .. item.file.asset_name),
+            type = item.file.type,
+            duration = item.duration,
+        }
+       
+    end
+    playlist4.set(prepare_playlist(items))
+    node.gc()
+end)
 
+util.file_watch("playlist/config.json", function(raw)
+    local config = json.decode(raw)
+    local items = {}
+    for idx = 1, #config.playlist56 do
+            --idx = idp
+        local item = config.playlist56[idx]
+        items[#items+1] = {
+            file = resource.open_file('playlist/' .. item.file.asset_name),
+            type = item.file.type,
+            duration = item.duration,
+        }
+       
+    end
+    playlist56.set(prepare_playlist(items))
+    node.gc()
+end)
 
 function node.render()
-    gl.clear(0,0,0,1)
-    if on then
-      if vid then                  
-    playlist2.tickq(os.time())     	
-			
-      else 
-       video2:draw(0, 0, WIDTH, HEIGHT)          
-     end       
-    else
-        playlist.tick(os.time())--font:write(120, 320, "RED", 100, 1,1,1,1)
-    if vid then        
-         vid=false   
-      else       
-        vid=true    
-     end  
-    end
+gl.clear(0,0,0,1)
+
+  if count==18 then  playlist_n.tickq(os.time())
+  elseif count==17 then  playlist12.tickq(os.time())
+  elseif count==27 then  playlist3.tickq(os.time())  
+  elseif count==23 then  playlist4.tickq(os.time())
+  elseif count==25 then  playlist56.tickq(os.time())     
+ else  playlist.tick(os.time()) 
+        end
+     
     
-    --screen.draw(test)
 end
