@@ -20,9 +20,14 @@ local video3 = resource.load_video{
 
 
 
+local font = resource.load_font "font.ttf"
+local count = 0
+local num=0
+
+
 util.data_mapper{
-    state = function(state)
-        on = state == '1'
+    counter = function(counter)
+        count = tonumber(counter)
     end,
 }
 
@@ -363,9 +368,9 @@ end)
 util.file_watch("playlist/config.json", function(raw)
     local config = json.decode(raw)
     local items = {}
-    for idx = 1, #config.playlist2 do
+    for idx = 1, #config.playlist12 do
             --idx = idp
-        local item = config.playlist2[idx]
+        local item = config.playlist12[idx]
         items[#items+1] = {
             file = resource.open_file('playlist/' .. item.file.asset_name),
             type = item.file.type,
@@ -373,7 +378,7 @@ util.file_watch("playlist/config.json", function(raw)
         }
        
     end
-    playlist2.set(prepare_playlist(items))
+    playlist12.set(prepare_playlist(items))
     node.gc()
 end)
 
