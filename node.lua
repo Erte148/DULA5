@@ -5,6 +5,8 @@ util.noglobals()
 
 
 local on = false
+
+local font = resource.load_font "font.ttf"
 local count = 0
 local num=0
 --local idp = 2
