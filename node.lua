@@ -389,21 +389,9 @@ end)
 
 function node.render()
     gl.clear(0,0,0,1)
-    if on then
-      if vid then                  
-    playlist12.tickq(os.time())     	
-			
-      else 
-       video2:draw(0, 0, WIDTH, HEIGHT)          
-     end       
-    else
-        playlist.tick(os.time())--font:write(120, 320, "RED", 100, 1,1,1,1)
-    if vid then        
-         vid=false   
-      else       
-        vid=true    
-     end  
-    end
+    playlist.tick(os.time())--font:write(120, 320, "RED", 100, 1,1,1,1)                
+    --playlist12.tickq(os.time())     	
+
     
     --screen.draw(test)
 end
